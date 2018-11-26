@@ -15,6 +15,7 @@ namespace myApp
             Variable<bool> firstCoin = Variable.Bernoulli(0.5);
             Variable<bool> secondCoin = Variable.Bernoulli(0.5);
             Variable<bool> bothHeads = firstCoin & secondCoin;
+            firstCoin.ObservedValue = true;
             InferenceEngine engine = new InferenceEngine();
             engine.ShowFactorGraph = true;
             Console.WriteLine("Probability both coins are heads: " + engine.Infer(bothHeads));
